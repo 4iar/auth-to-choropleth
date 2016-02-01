@@ -1,5 +1,6 @@
 import plotly
 from iso3166 import countries
+from sys import argv
 
 def plot_chloropleth(data):
 
@@ -36,4 +37,5 @@ def plot_chloropleth(data):
     )
 
     fig = dict(data=data, layout=layout)
-    url = plotly.offline.plot(fig, validate=False, filename='d3-world-map')
+    filename = "{}_chloropleth.html".format(argv[1])
+    url = plotly.offline.plot(fig, validate=False, filename=filename)
