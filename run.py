@@ -14,12 +14,3 @@ if __name__ == "__main__":
     data = g.generate_ip_geolocation_report(ip_addresses)
 
     plot.plot_chloropleth(data)
-
-    print("done")
-
-
-
-
-
-
-
