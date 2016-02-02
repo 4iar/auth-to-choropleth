@@ -15,6 +15,7 @@ class SSHDLogParser:
 
         ip_addresses.append(findall("(?<=Failed password for)(?: \w+ from )(.+)(?= port)", log_text))
         ip_addresses.append(findall("(?<=Invalid user )(?:\w+ from )(.+)", log_text))
+        ip_addresses.append(findall("(?<=Did not receive identification string from )(.+)", log_text))
 
         return [ip for ip_matches in ip_addresses for ip in ip_matches]
 
