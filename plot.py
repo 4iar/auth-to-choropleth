@@ -9,7 +9,7 @@ def plot_chloropleth(data):
             locations=list(data.keys()),
             z=list(data.values()),
             text=[countries.get(c).name for c in data.keys()],
-            colorscale = [[0, 'rgb(254,229,217)'], [0.35, 'rgb(252,187,161)'], [0.5, 'rgb(252,146,114)'], [0.6, 'rgb(251,106,74)'], [0.7, 'rgb(222,45,38)'], [1, 'rgb(165,15,21)']],
+            colorscale = [[0, 'rgb(255,248,245)'], [0.35, 'rgb(252,187,161)'], [0.5, 'rgb(252,146,114)'], [0.6, 'rgb(251,106,74)'], [0.7, 'rgb(222,45,38)'], [1, 'rgb(165,15,21)']],
             autocolorscale=False,
             reversescale=False,
             marker=dict(
