@@ -14,7 +14,11 @@ class IPGeolocationSource:
         report = self.ip_geolocation_report_template
 
         for ip in ip_list:
-            country = countries.get(self.geolocate_ip(ip)).alpha3
+            try:
+                country = countries.get(self.geolocate_ip(ip)).alpha3
+            except KeyError:
+                print("Couldn't get a location from {}".format(ip))
+
             report[country] = report.get(country) + 1
 
         return report
@@ -37,6 +41,9 @@ class GeoIPLookup(IPGeolocationSource):
     def geolocate_ip(self, ip):
         output = subprocess.check_output(["geoiplookup", ip],
                                          stderr=subprocess.STDOUT).decode("UTF-8")
+
+        if "IP Address not found" in output:
+            return None
 
         return findall("(?<=: )(\w{2})(?=,)", output)[0]
 
