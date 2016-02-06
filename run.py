@@ -10,6 +10,9 @@ if __name__ == "__main__":
     parser = SSHDLogParser()
     ip_addresses = parser.retrieve_ip_addresses_from_log(path)
 
+    print("Found {} ip addresses".format(len(ip_addresses)))
+    print(ip_addresses)
+
     g = GeoIPLookup()
     data = g.generate_ip_geolocation_report(ip_addresses)
 
